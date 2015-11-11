@@ -10,6 +10,21 @@
 
 	<button id="the-button">I am button</button>
 
+	<div id="div1" style="padding: 20px; background: red; width: 300px;">I am div #1</div>
+
+
+	<br>
+	<button id="second-button">Click me to see an animation</button>
+	<div id="sub-menu" style="background-color: orange; padding: 40px; display: none;">
+		<h3>Dropdown Menu</h3>
+		<ul>
+			<li><a href="#">Link 1</a></li>
+			<li><a href="#">Link 2</a></li>
+			<li><a href="#">Link 3</a></li>
+		</ul>
+
+	</div>
+
 
 
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -47,7 +62,31 @@
 
 		function respondToButtonHover() {
 			$(this).css('background-color', 'purple');
-		}				
+		}
+
+
+		// This is an example of animating the left margin
+		// value of the element with ID 'div1', 300px over
+		// a period of 1s (1000ms)
+		$('#div1').animate({
+				'margin-left': '300px',
+				'font-size': '48px',
+				'height': '500px'
+			}, 1000);
+
+
+		// Here is an example of using a built in
+		// jQuery animation to toggle a submenu
+		var menuButton = $('#second-button');
+		var subMenu = $('#sub-menu');
+		
+		menuButton.click(function(){
+			// Animate open the sub menu
+			subMenu.fadeToggle(1000);
+
+			// Or we can slide it!
+			//subMenu.slideToggle(1000);
+		});
 
 
 	</script>
