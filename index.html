@@ -8,17 +8,47 @@
 <body>
 	<h1 id="intro">Hello, world</h1>
 
+	<button id="the-button">I am button</button>
+
+
+
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 	<script>
 		// This is how we grab a reference to the thing with ID 'intro'
 		var heading = $('#intro');
+		var theButton = $('#the-button');
 
 		// Here is how we could set the CSS 'color' property
 		heading.css('color', 'orange');
 
 		// Here is how we would change the inner HTML of the element
 		heading.html('Goodbye, world');
+
+		// This is how we would listen for a click event on the button
+		// And then how we could "handle" or respond to the click event
+		theButton.click(function(){
+			// This is where we handle the event
+			// We are just opening a simple alert box for an example
+			// The code here could do any number of things
+			alert('The button has been clicked');
+		});
+
+
+		// This is how we listen for a hover event and respond
+		// with the listener.
+		//
+		// This and the above listener are two ways we can setup
+		// listeners and corresponding handlers. We can move
+		// the handler out into a seperate function and give it a
+		// name, or we can write the handler inline with an
+		// anonyous function, like the previous example
+		theButton.hover('respondToButtonHover');
+
+		function respondToButtonHover() {
+			$(this).css('background-color', 'purple');
+		}				
+
 
 	</script>
 </body>
